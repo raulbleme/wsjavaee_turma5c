@@ -1,10 +1,14 @@
 package br.com.itau.gerenciador.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +26,17 @@ public class Artista {
 	@Column(name="nacionalidade", length=70)
 	private String nacionalidade;
 	
+	@OneToMany(mappedBy="artista", cascade=CascadeType.ALL)
+	private List<Musica> musicas;
+	
+	public List<Musica> getMusicas() {
+		return musicas;
+	}
+
+	public void setMusicas(List<Musica> musicas) {
+		this.musicas = musicas;
+	}
+
 	public Artista() {
 		super();
 	}

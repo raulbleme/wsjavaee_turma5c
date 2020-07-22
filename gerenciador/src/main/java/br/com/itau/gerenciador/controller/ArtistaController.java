@@ -52,9 +52,15 @@ public class ArtistaController {
 		}
 	}
 	
-	@PostMapping("/cadastrar")
-	public Artista create(@RequestBody Artista artista){
-		return dao.save(artista);
+	@PostMapping("/cadastrarArtista")
+	public ResponseEntity<Artista> gravar(@RequestBody Artista artista){
+		try {
+			dao.save(artista);
+			return ResponseEntity.ok(artista);
+		} catch(Exception e) {
+			return ResponseEntity.status(500).build();
+		}
+		
 	}
 
 }
