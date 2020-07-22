@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.itau.gerenciador.dao.ArtistaDAO;
 import br.com.itau.gerenciador.model.Artista;
 
+@CrossOrigin("*")
 @RestController
 public class ArtistaController {
 
@@ -52,7 +54,7 @@ public class ArtistaController {
 		}
 	}
 	
-	@PostMapping("/cadastrarArtista")
+	@PostMapping("/cadastrarartista")
 	public ResponseEntity<Artista> gravar(@RequestBody Artista artista){
 		try {
 			dao.save(artista);

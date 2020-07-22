@@ -6,4 +6,5 @@ import br.com.itau.gerenciador.model.Musica;
 
 public interface MusicaDAO extends CrudRepository<Musica, Integer>{
 
+	
 }
